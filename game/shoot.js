@@ -16,6 +16,9 @@ function shoot()
         scene.add(bullet);
         bullet.position.x = player1.graphic.position.x + 7.5 * Math.cos(player1.direction);
         bullet.position.y = player1.graphic.position.y + 7.5 * Math.sin(player1.direction);
+
+        player2.dead()
+
         bullet.angle = player1.direction;
         player1.bullets.push(bullet);
         bulletTime1 = clock.getElapsedTime();
@@ -96,6 +99,7 @@ function player_falling()
             && (y < mtileY))
         {
            player1.dead();
+           break;
         }
     }
 
