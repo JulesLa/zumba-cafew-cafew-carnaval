@@ -23,6 +23,7 @@ var Ennemy = function(name, color, position, direction) {
 };
 
 Ennemy.prototype.dead = function () {
+    scene.remove(this.graphic);
     console.log("dead " + this.name)
 }
 
