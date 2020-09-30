@@ -38,7 +38,8 @@ function shoot()
 function collisions()
 {
     bullet_collision();
-    player_collision();
+    player_collision(player1);
+    ennemies.forEach(ennemy => player_collision(ennemy))
     player_falling();
 }
 
@@ -58,20 +59,20 @@ function bullet_collision()
 
 }
 
-function player_collision()
+function player_collision(player)
 {
     //collision between player and walls
-    var x = player1.graphic.position.x + WIDTH / 2;
-    var y = player1.graphic.position.y + HEIGHT / 2;
+    var x = player.graphic.position.x + WIDTH / 2;
+    var y = player.graphic.position.y + HEIGHT / 2;
 
     if ( x > WIDTH )
-        player1.graphic.position.x -= x - WIDTH;
+        player.graphic.position.x -= x - WIDTH;
     if ( x < 0 )
-        player1.graphic.position.x -= x;
+        player.graphic.position.x -= x;
     if ( y < 0 )
-        player1.graphic.position.y -= y;
+        player.graphic.position.y -= y;
     if ( y > HEIGHT )
-        player1.graphic.position.y -= y - HEIGHT;
+        player.graphic.position.y -= y - HEIGHT;
 
 }
 

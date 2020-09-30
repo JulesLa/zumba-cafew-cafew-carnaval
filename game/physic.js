@@ -13,6 +13,20 @@ function update()
     if (keyboard.pressed("down"))
         player1.decelerate(moveDistance);
 
+    ennemies.forEach(ennemy => {
+        const rand = Math.floor(Math.random()*4)
+
+        if (rand === 1)
+            ennemy.turnLeft(rotateAngle * 2);
+        if (rand === 2)
+            ennemy.turnRight(rotateAngle * 2);
+        if (rand === 3)
+            ennemy.accelerate(moveDistance);
+        if (rand === 4)
+            ennemy.decelerate(moveDistance);
+        ennemy.move()
+    })
+
     player1.move();
     controls.update();
 }
