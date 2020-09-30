@@ -23,10 +23,7 @@ var Ennemy = function(name, color, position, direction) {
 };
 
 Ennemy.prototype.dead = function () {
-    this.material = new THREE.MeshLambertMaterial({
-        color: 0x000000,
-    });
-    scene.add(player2.graphic);
+    console.log("dead " + this.name)
 }
 
 Ennemy.prototype.accelerate = function (distance) {

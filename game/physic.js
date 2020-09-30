@@ -15,7 +15,6 @@ function update()
 
     ennemies.forEach(ennemy => {
         const rand = Math.floor(Math.random()*4)
-
         if (rand === 1)
             ennemy.turnLeft(rotateAngle * 2);
         if (rand === 2)

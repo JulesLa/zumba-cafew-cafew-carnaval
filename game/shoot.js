@@ -17,8 +17,6 @@ function shoot()
         bullet.position.x = player1.graphic.position.x + 7.5 * Math.cos(player1.direction);
         bullet.position.y = player1.graphic.position.y + 7.5 * Math.sin(player1.direction);
 
-        player2.dead()
-
         bullet.angle = player1.direction;
         player1.bullets.push(bullet);
         bulletTime1 = clock.getElapsedTime();
@@ -31,6 +29,14 @@ function shoot()
     {
         player1.bullets[i].position.x += moveDistance * Math.cos(player1.bullets[i].angle);
         player1.bullets[i].position.y += moveDistance * Math.sin(player1.bullets[i].angle);
+        ennemies = ennemies.filter(ennemy => {
+            let bullet = player1.bullets[i]
+            if (bullet.position.x < ennemy.position.x + 10 && bullet.position.x > ennemy.position.x - 10 && bullet.position.y < ennemy.position.y + 10 && bullet.position.y > ennemy.position.y - 10) {
+                ennemy.dead();
+                return false;
+            }
+            return true;
+        })
     }
 
 }
